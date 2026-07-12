@@ -13,8 +13,9 @@ Deliver a reproducible C++23 Windows foundation: CMake presets, vcpkg manifest, 
 ## Current state
 
 - Canonical clone at `E:/blackline` with `origin` = `https://github.com/TrixxDev/blackline.git`.
-- Phase 0 sources, presets, tests, and CI workflow added.
-- Phase 0 closure validation completed for Debug and Release presets.
+- Phase 0 foundation pushed as commit **`61f2bac`** on `origin/main`.
+- Phase 0 closure validation completed locally for Debug and Release presets.
+- Remote CI validation remains **open** — first GitHub Actions run did not execute (account billing lock).
 
 ## Design
 
@@ -62,13 +63,14 @@ Local evidence (2026-07-13 closure):
 
 ## Risks
 
-- GitHub Actions workflow exists but has **not** been observed running on the remote repository.
+- **Remote CI blocked (2026-07-13):** GitHub Actions run `Windows Build and Test #1` for commit `61f2bac` did not start. Message: *The job was not started because your account is locked due to a billing issue.* No workflow, CMake, vcpkg, source, or test changes are warranted until a run completes and shows an actual build/test failure.
 - License remains unfinalized; see `LICENSE.md`.
 
 ## Progress log
 
 - 2026-07-13: Preflight passed (`origin` canonical). Starter pack restored. Phase 0 implemented.
 - 2026-07-13: Phase 0 closure — clean Debug/Release validation, version normalized to `0.0.1`, repository hygiene review completed.
+- 2026-07-13: Commit `61f2bac` pushed to `https://github.com/TrixxDev/blackline.git`. First Actions run blocked by GitHub account billing lock; remote CI validation deferred.
 
 ## Decision log
 
@@ -79,10 +81,13 @@ Local evidence (2026-07-13 closure):
 
 ## Completion report
 
-Phase 0 is locally complete and hardened. Remaining before broader publication:
+Phase 0 is **locally complete** at commit `61f2bac`. Phase 0 is **not fully closed** until remote CI validation succeeds.
+
+Open items:
 
 - owner license decision;
-- first commit and push;
-- observed GitHub Actions run on `TrixxDev/blackline`.
+- re-run `Windows Build and Test #1` on commit `61f2bac` after the GitHub billing lock is resolved (do not push an empty commit to retrigger CI).
 
-Next recommended task: **Phase 1 — platform shell** (`docs/ROADMAP.md`).
+Do **not** start Phase 1 until remote CI validation passes.
+
+Next step after billing resolution: re-run the existing workflow, inspect logs, then update this plan and `docs/ROADMAP.md` with the verified remote CI result.

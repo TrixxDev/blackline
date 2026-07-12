@@ -17,7 +17,14 @@ Outcome: repeatable empty-project build and test environment.
 
 Exit criteria: clean clone can configure, build, and run tests using documented commands.
 
-Phase 0 local closure (2026-07-13): Debug and Release presets configure, build, pass CTest (4/4), and run `blackline_bootstrap.exe` with version `0.0.1`. Remaining: owner license decision and an observed GitHub Actions run after the first push.
+Phase 0 local closure (2026-07-13): Debug and Release presets configure, build, pass CTest (4/4), and run `blackline_bootstrap.exe` with version `0.0.1`. Pushed to `origin/main` as commit `61f2bac`.
+
+Remaining open:
+
+- **License decision** — owner has not selected a license (`LICENSE.md` placeholder only).
+- **Remote CI validation** — workflow `.github/workflows/windows-ci.yml` is present, but the first run (`Windows Build and Test #1`, commit `61f2bac`) did not start. GitHub reported: *The job was not started because your account is locked due to a billing issue.* This is an account/platform blocker, not evidence of a repository or build defect. Do not create a new commit solely to retrigger CI. After the billing lock is resolved, re-run `Windows Build and Test #1` against commit `61f2bac` and inspect the actual build/test result.
+
+Phase 1 must not start until remote CI validation is complete.
 
 ## Phase 1 — platform shell
 
