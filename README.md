@@ -57,11 +57,19 @@ ctest --preset windows-debug --output-on-failure
 
 ## Phase 0 status
 
-Locally verified on 2026-07-13:
+Locally verified on 2026-07-13 (commit `61f2bac`):
 
 - Debug and Release presets configure, build, and test cleanly
 - `blackline_bootstrap.exe` reports `0.0.1` and the matching configuration name
-- GitHub Actions workflow file is present but has **not** run on the remote repository yet
+
+Remote CI (open):
+
+- Workflow `.github/workflows/windows-ci.yml` is on `main`
+- First run (`Windows Build and Test #1`) did **not** execute — GitHub account billing lock
+- This is not treated as a repository or build defect; no workflow or code changes were made in response
+- After billing is resolved, re-run the same workflow against commit `61f2bac` (no new commit needed to trigger CI)
+
+Phase 1 has not started and remains blocked until remote CI validation completes.
 
 ## License
 
@@ -69,4 +77,4 @@ See `LICENSE.md`. Licensing has not been finalized; the placeholder grants no re
 
 ## Next milestone
 
-Phase 1 — platform shell (logging, fixed tick, SDL3 window and input). See `docs/ROADMAP.md`.
+Phase 1 — platform shell (logging, fixed tick, SDL3 window and input). **Blocked** until Phase 0 remote CI validation completes. See `docs/ROADMAP.md`.
