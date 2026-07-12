@@ -1,0 +1,54 @@
+# Build output
+/build/
+/out/
+/cmake-build-*/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+compile_commands.json
+
+# vcpkg
+/vcpkg_installed/
+**/vcpkg_installed/
+
+# Local CMake overrides
+CMakeUserPresets.json
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.VC.db
+*.VC.VC.opendb
+
+# Binaries and debug files
+*.exe
+*.dll
+*.lib
+*.pdb
+*.obj
+*.ilk
+
+# Logs and captures
+*.log
+*.dmp
+*.pix3
+*.rdc
+.codex-log/
+
+# Generated/cooked assets
+/assets/cooked/
+/assets/staging/
+
+# Local proprietary or unverified assets
+/assets/local/
+
+# OS
+.DS_Store
+Thumbs.db

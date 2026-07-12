@@ -1,0 +1,9 @@
+# Project-scoped Codex defaults. Loaded only after the repository is trusted.
+# Keep network disabled by default. Enable it for a specific run only when a task
+# genuinely requires dependency lookup or downloads.
+
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+
+[sandbox_workspace_write]
+network_access = false

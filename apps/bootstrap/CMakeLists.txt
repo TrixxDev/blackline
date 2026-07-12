@@ -1,0 +1,7 @@
+add_executable(blackline_bootstrap main.cpp)
+
+target_link_libraries(blackline_bootstrap PRIVATE blackline::core)
+
+target_compile_features(blackline_bootstrap PRIVATE cxx_std_23)
+
+blackline_apply_project_warnings(blackline_bootstrap)

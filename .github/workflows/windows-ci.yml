@@ -1,0 +1,51 @@
+name: Windows Build and Test
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  build-test:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
+      - name: Setup vcpkg
+        uses: lukka/run-vcpkg@v11
+        with:
+          vcpkgGitCommitId: f87344cac03158cbf1467264565f1fd36b382a24
+
+      - name: Configure
+        uses: lukka/run-cmake@v10
+        with:
+          configurePreset: windows-debug
+
+      - name: Build
+        uses: lukka/run-cmake@v10
+        with:
+          buildPreset: windows-debug
+
+      - name: Test
+        uses: lukka/run-cmake@v10
+        with:
+          testPreset: windows-debug
+
+      - name: Run bootstrap executable
+        shell: pwsh
+        run: |
+          $exe = Get-ChildItem -Path out/build/windows-debug -Recurse -Filter blackline_bootstrap.exe | Select-Object -First 1
+          if (-not $exe) { throw "blackline_bootstrap.exe not found" }
+          & $exe.FullName

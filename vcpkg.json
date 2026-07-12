@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "blackline",
+  "version-string": "0.0.1",
+  "description": "BLACKLINE competitive FPS and purpose-built engine",
+  "builtin-baseline": "f87344cac03158cbf1467264565f1fd36b382a24",
+  "dependencies": [
+    "catch2"
+  ]
+}
